@@ -1,0 +1,26 @@
+<mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+
+    <mat-tab label="Novo">
+      <app-c-student-new 
+        #component
+        #componentUpdate
+        [searchStudentData]="searchcomponent.searchNewStudent"
+        (eventNew)="emiteEvent($event)">
+  
+      </app-c-student-new>
+    </mat-tab>
+    
+    <mat-tab label="Pesquisa">
+      <app-c-student-search 
+        [newStudentData]="component.studentModelSave"
+        [updateStudentData]="componentUpdate.studentUpdate"
+        #searchcomponent (event)="emiteEvent($event)">
+      </app-c-student-search>
+    </mat-tab>
+  
+  </mat-tab-group>
+  
+  
+  <li>
+    Tab Selecionada: <i>{{selected.value}}</i>
+  </li>

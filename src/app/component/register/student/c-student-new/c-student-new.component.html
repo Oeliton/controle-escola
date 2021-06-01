@@ -1,0 +1,58 @@
+<mat-card>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Nome"
+                [(ngModel)]="studentModel.nome" name="nome">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="CPF" [(ngModel)]="studentModel.cpf" name="cpf">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Sexo</mat-label>
+            <mat-select  [(ngModel)]="studentModel.sexo" name="sexo">
+                <mat-option value="M">Masculino</mat-option>
+                <mat-option value="F">Feminino</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!--[(ngModel)]="studentModel.dtnascimento" name="dtnascimento">-->
+        <!--<mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>-->
+
+        <mat-form-field>
+            <mat-label>Estado Civil</mat-label>
+            <mat-select  [(ngModel)]="studentModel.estado_civil" name="estado_civil">
+                <mat-option value="C">Casado</mat-option>
+                <mat-option value="S">Solteiro</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="E-Mail" [(ngModel)]="studentModel.email" name="email">
+            <!--<input matInput placeholder="pat@example.com" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Telefone"
+                [(ngModel)]="studentModel.fone" name="fone">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Celular"
+                [(ngModel)]="studentModel.celular" name="celular">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="create()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

@@ -1,0 +1,85 @@
+<!--
+<mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side" opened 
+        fixedInViewport="true" fixedTopGap="64">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">
+                    home
+                </i>
+                Início
+            </a>
+            <a mat-list-item  routerLink="/user">
+              <i class="material-icons"> face </i>
+              Usuário
+            </a>
+            <a mat-list-item  routerLink="/student/new">
+              <i class="material-icons"> supervised_user_circle </i>
+              Estudante
+            </a>
+            <a mat-list-item  routerLink="/matter/new">
+                <i class="material-icons"> menu_book </i>
+                Disciplina
+            </a>
+
+            <a mat-list-item  routerLink="/matter/new">
+              <i class="material-icons"> account_circle </i>
+              new1
+            </a>
+            <a mat-list-item  routerLink="/matter/new">
+              <i class="material-icons"> fingerprint </i>
+              new2
+            </a>
+            <a mat-list-item  routerLink="/matter/new">
+              <i class="material-icons"> alarm </i>
+              new3
+            </a>
+            <a mat-list-item  routerLink="/matter/new">
+              <i class="material-icons"> attribution </i>
+              new4
+            </a>
+            <a mat-list-item  routerLink="/matter/new">
+              <i class="material-icons"> folder </i>
+              new5
+            </a>
+            <a mat-list-item  routerLink="/matter/new">
+              <i class="material-icons"> family_restroom </i>
+              new6
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+-->
+
+
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+    <cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+      <cdk-nested-tree-node *cdkTreeNodeDef="let node" class="example-tree-node">
+        <button mat-icon-button (click)="routerLink(node.value)" class="descrButonF">
+          {{node.nameP + node.name}}
+        </button>
+      </cdk-nested-tree-node>
+      <cdk-nested-tree-node *cdkTreeNodeDef="let node; when: hasChild" class="example-tree-node">
+        <button mat-icon-button [attr.aria-label]="'Toggle ' + node.name" cdkTreeNodeToggle>
+          <mat-icon class="mat-icon-rtl-mirror">
+            {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+          </mat-icon>
+        </button>
+        <button mat-icon-button (click)="routerLink(node.value)" class="descrButon">
+          {{node.name}}
+        </button>
+        <div [class.example-tree-invisible]="!treeControl.isExpanded(node)">
+          <ng-container cdkTreeNodeOutlet></ng-container>
+        </div>
+      </cdk-nested-tree-node>
+    </cdk-tree>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  

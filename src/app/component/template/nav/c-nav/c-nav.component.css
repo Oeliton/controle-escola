@@ -1,0 +1,44 @@
+.sidenav {
+    background-color: #3F51B5;
+    /*background-color: #362ae475;*/
+    width: 200px;
+}
+
+.sidenav a {
+    color: #FFF;
+}
+
+.sidenav i {
+    padding-right: 10px;
+}
+
+.descrButon{
+  color: #FFF;
+}
+
+.descrButonF{
+  color: rgb(15, 228, 15);
+}
+
+.content {
+    padding: 16px;
+    background-color: #FFF;
+}
+
+.example-tree-invisible {
+    display: none;
+  }
+  
+  .example-tree ul,
+  .example-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  .example-tree-node {
+    display: block;
+  }
+  
+  .example-tree-node .example-tree-node {
+    padding-left: 40px;
+  }
